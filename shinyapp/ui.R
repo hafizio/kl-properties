@@ -1,21 +1,21 @@
-fluidPage(
+navbarPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  "Kuala Lumpur Properties Price",
   
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
-    ),
-    
-    # Show a plot of the generated distribution
-    mainPanel(
-      plotOutput("distPlot")
+  tabPanel(
+    "Interactive Map",
+    div(
+      class = "outer",
+      tags$head(
+        includeCSS("styles.css")
+      ),
+      
+      # If not using custom CSS, set height of leafletOutput to a number instead of percent
+      leafletOutput("map", width = "70%", height = "100%")
+      
+  
     )
   )
+  
 )
