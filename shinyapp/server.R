@@ -16,37 +16,22 @@ function(input, output, session) {
     
     updateLeaflet <- reactive({
         if (inputView() == "Psf") {
-            # render the data frame that the first column is the average psf
             resultInPsf <- format(areaPriceData[,4],digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
         } else {
-            # render the data frame that the first column is the average price
             resultInPrice <- format(areaPriceData[,2],digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
         }
     })
     updateLeafletScale <- reactive({
         if (inputView() == "Psf") {
-            # render the data frame that the first column is the average psf
             areaPriceData[,4]
         } else {
-            # render the data frame that the first column is the average price
             areaPriceData[,2]
-        }
-    })
-    updateMaxRange <- reactive({
-        if (inputView() == "Psf") {
-            # render the data frame that the first column is the average psf
-            c(0, g_max_psf_range)
-        } else {
-            # render the data frame that the first column is the average price
-            c(0, g_max_price_range)
         }
     })
     getPrefix <- reactive({
         if (inputView() == "Psf") {
-            # render the data frame that the first column is the average psf
             ""
         } else {
-            # render the data frame that the first column is the average price
             "RM"
         }
     })
@@ -73,13 +58,22 @@ function(input, output, session) {
                         # TODO : then we move to display the psf
                         # TODO : maybe interactive recalculate by select option prop_price or psf
                         label = paste(g_areaList, " : ", getPrefix() , updateLeaflet()),
-                        color = qpal(rescale(x = updateLeafletScale(), to = updateMaxRange(),  na.rm=TRUE))
+                        color = qpal(rescale(
+                                        x = updateLeafletScale(),
+                                        to = c(0, g_max_price_range), 
+                                        na.rm=TRUE
+                                        )
+                                     )
             ) %>%
             setView(lat = 3.138951, lng = 101.694423, zoom = 12) %>%
             addLegend(
                 "bottomleft",
-                pal = qpal,
-                values = updateMaxRange(),
+                pal = colorNumeric(
+                    na.color = "white",
+                    palette = c("Green", "Yellow", "Red"),
+                    domain = updateLeafletScale()
+                ),
+                values = updateLeafletScale(),
                 opacity = 0.7,
                 labFormat = labelFormat(suffix = "", prefix=getPrefix()),
             )
