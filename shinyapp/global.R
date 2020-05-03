@@ -5,12 +5,13 @@ library(dplyr) # to select
 library(stringr) # to replace string
 library(scales)
 library(plyr)
+library(DT) # to display table 
 
 c_geojsonPath <- "data/09-WPKL-New-DM-4326.geojson"
 c_propDataPath <- "data/properties.csv"
 
 # define the constant here
-g_option_view <- c("Price", "Psf")
+g_option_view <- c("Property price"="Price", "Per square feet"="Psf")
 
 # read the geojson as "SpatialPolygonsDataFrame"
 g_geojson <- geojson_read(c_geojsonPath, what = "sp")
@@ -25,7 +26,8 @@ g_area_df <- data.frame("LocationGroup" = g_areaList)
 
 # TODO : here we clean up our R. mayb extract this function to another class file
 # Import the data
-propData <- read.csv(file = c_propDataPath)
+g_oriPropData <- read.csv(file = c_propDataPath)
+propData <- g_oriPropData
   # look at the first six rows
   head(propData)
   class(propData) # it is dataframe
@@ -136,6 +138,8 @@ class(groupedPropData)
 areaPriceData <- left_join(g_area_df, groupedPropData, by="LocationGroup")
 # calculate the psf
 areaPriceData$psf <- areaPriceData$MeanPrice / areaPriceData$MeanSize
+
+class(areaPriceData)
 head(areaPriceData)
 # TODO : fill up the empty area with the same group
 # TODO : how to copy row to the same area

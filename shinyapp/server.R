@@ -45,9 +45,8 @@ function(input, output, session) {
     )
     
     #
-    # RENDERING 
+    # RENDERING MAP
     #
-    # Render map
     output$map <- renderLeaflet({
         leaflet(g_geojson) %>%
             addTiles() %>%
@@ -78,5 +77,20 @@ function(input, output, session) {
                 labFormat = labelFormat(suffix = "", prefix=getPrefix()),
             )
     })
+    
+    #
+    # RENDERING TABLE
+    #
+    output$rawDataTable <- renderDataTable(g_oriPropData)
+    
+    # format for display 
+    displayTable <- areaPriceData
+    displayTable$MeanPrice <- format(displayTable$MeanPrice,digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
+    displayTable$MeanSize <- format(displayTable$MeanSize,digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
+    displayTable$psf <- format(displayTable$psf,digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
+    
+    output$processedDataTable <- renderDataTable(displayTable)
+    
+    
 }
 

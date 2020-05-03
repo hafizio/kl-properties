@@ -31,6 +31,24 @@ navbarPage(
       
   
     )
+  ), 
+  tabPanel(
+    "Raw Data",
+    class = "outer",
+    # TODO : fix the css, so that scrollable when displaying more rows.
+    tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
+    basicPage(
+      DT::dataTableOutput("rawDataTable")
+    )
+  ), 
+  tabPanel(
+    "Processed Data",
+    class = "outer",
+    # TODO : fix the css, so that scrollable when displaying more rows.
+    tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
+    basicPage(
+      DT::dataTableOutput("processedDataTable")
+    )
   )
   
 )
