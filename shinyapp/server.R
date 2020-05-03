@@ -67,15 +67,56 @@ function(input, output, session) {
                                      )
             ) %>%
             # show subway lines
-            addPolylines(data = subwayLines, weight = 3, 
-                         color = "#03BCC0", group = c_controlGroup) %>%
-            # show POI 
-            addCircleMarkers(data = points,
-                             group = "POI",
-                             color = "#FF5850", 
-                             #label = name,  
+            # TODO : somehow the subway line display not consistent!!!
+            # addPolylines(data = subwayLines, 
+            #              weight = 3, 
+            #              color = "Black", 
+            #              group = c_controlGroup) %>%
+            # show buildings 
+            # addPolylines(data = buildings, weight = 3, 
+            #             color = "Purple", group = c_controlGroup) %>%
+            # show School 
+            addCircleMarkers(data = school,
+                             group = "School",
+                             color = "#382b82", 
+                             label = school$name,  
                              radius = 5, 
                              stroke = FALSE, fillOpacity = .8) %>% 
+            # show Hospital 
+            addCircleMarkers(data = hospital,
+                             group = "Hospital",
+                             color = "#5923a9", 
+                             label = hospital$name,  
+                             radius = 5, 
+                             stroke = FALSE, fillOpacity = .9) %>%
+            # show university 
+            addCircleMarkers(data = university,
+                             group = "University",
+                             color = "#006b4f", 
+                             label = university$name,  
+                             radius = 5, 
+                             stroke = FALSE, fillOpacity = .9) %>%
+            # show atm 
+            addCircleMarkers(data = atm,
+                             group = "ATM",
+                             color = "#00e5ff", 
+                             label = atm$name,  
+                             radius = 5, 
+                             stroke = FALSE, fillOpacity = .9) %>%
+            # show police 
+            addCircleMarkers(data = police,
+                             group = "Police Station",
+                             color = "#d770fa", 
+                             label = police$name,  
+                             radius = 5, 
+                             stroke = FALSE, fillOpacity = .9) %>%
+            # show fuel 
+            addCircleMarkers(data = fuel,
+                             group = "Fuel Station",
+                             color = "#fb5050", 
+                             label = fuel$name,  
+                             radius = 5, 
+                             stroke = FALSE, fillOpacity = .9) %>%
             # show control group
             hideGroup(
                 c_controlGroup
