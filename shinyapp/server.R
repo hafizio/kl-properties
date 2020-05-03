@@ -1,3 +1,5 @@
+source("readData.R")
+
 function(input, output, session) {
     
     #
@@ -64,6 +66,23 @@ function(input, output, session) {
                                         )
                                      )
             ) %>%
+            # show subway lines
+            addPolylines(data = subwayLines, weight = 3, 
+                         color = "#03BCC0", group = c_controlGroup) %>%
+            # show POI 
+            addCircleMarkers(data = points,
+                             group = "POI",
+                             color = "#FF5850", 
+                             #label = name,  
+                             radius = 5, 
+                             stroke = FALSE, fillOpacity = .8) %>% 
+            # show control group
+            hideGroup(
+                c_controlGroup
+            ) %>% 
+            addLayersControl(
+                overlayGroups = c_controlGroup
+            ) %>%
             setView(lat = 3.138951, lng = 101.694423, zoom = 12) %>%
             addLegend(
                 "bottomleft",
@@ -91,6 +110,4 @@ function(input, output, session) {
     
     output$processedDataTable <- renderDataTable(displayTable)
     
-    
 }
-

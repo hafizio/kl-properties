@@ -5,7 +5,7 @@ library(dplyr) # to select
 library(stringr) # to replace string
 library(scales)
 library(plyr)
-library(DT) # to display table 
+library(DT) # to display table
 
 c_geojsonPath <- "data/09-WPKL-New-DM-4326.geojson"
 c_propDataPath <- "data/properties.csv"
@@ -143,6 +143,3 @@ class(areaPriceData)
 head(areaPriceData)
 # TODO : fill up the empty area with the same group
 # TODO : how to copy row to the same area
-
-
-
