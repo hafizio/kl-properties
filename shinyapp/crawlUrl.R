@@ -6,11 +6,12 @@ library(udpipe)
 library(wordcloud2)
 library(tibble)
 library(dplyr)
+library(httr)
 
 # read page function
 f_readpage <- function(in_url) {
   Sys.sleep(1)
-  GET(in_url, timeout(1))
+  httr::GET(in_url, timeout(1))
   page <- read_html(in_url)
   text <- rvest::html_nodes(page, '.post_text')
   
