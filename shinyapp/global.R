@@ -13,6 +13,9 @@ c_propDataPath <- "data/properties.csv"
 # define the constant here
 g_option_view <- c("Property price"="Price", "Per square feet"="Psf")
 
+# the topic title holder
+g_topic_title <- 'Please enter a link'
+
 # read the geojson as "SpatialPolygonsDataFrame"
 g_geojson <- geojson_read(c_geojsonPath, what = "sp")
 class(g_geojson)
