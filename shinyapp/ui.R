@@ -37,7 +37,7 @@ navbarPage(
     class = "outer",
     # TODO : fix the css, so that scrollable when displaying more rows.
     tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
-    basicPage(
+    bootstrapPage(
       DT::dataTableOutput("rawDataTable")
     )
   ), 
@@ -46,8 +46,29 @@ navbarPage(
     class = "outer",
     # TODO : fix the css, so that scrollable when displaying more rows.
     tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
-    basicPage(
+    bootstrapPage(
       DT::dataTableOutput("processedDataTable")
+    )
+  ),
+  tabPanel(
+    "Forum Post Analysis",
+    class = "outer",
+    # TODO : fix the css, so that scrollable when displaying more rows.
+    tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
+    bootstrapPage(
+      textInput("topicUrl", 'Topic URL (lowyat.net) only : ', value = 'https://forum.lowyat.net/topic/4001664', width = NULL,
+                placeholder = NULL),
+      
+      numericInput("lastPost", 'Last Post # : ', 100, min = 10, max = 1000, step = 20,
+                   width = NULL),
+      submitButton('Submit'),
+      
+      # display the Topic Title here.
+      # TODO : proper alignment so that look nicer
+      textOutput("topicTitle"),
+      
+      # render the wordcloud2 here.
+      wordcloud2::wordcloud2Output('wc2')
     )
   )
   

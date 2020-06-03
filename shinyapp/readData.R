@@ -9,10 +9,10 @@ c_naturalPath <- "data/planet_101.54_2.904_55fa5645-shp/shape/natural.shp"
 c_placesPath <- "data/planet_101.54_2.904_55fa5645-shp/shape/places.shp"
 
 # TODO : plot the station, can found in points???
-subwayLines <- readOGR(c_railwaysPath, stringsAsFactors = FALSE)
+subwayLines <- rgdal::readOGR(c_railwaysPath, stringsAsFactors = FALSE)
 
 # TODO : extract bank, hospital, fuel, restaurant from the POI
-points <- readOGR(c_pointsPath, stringsAsFactors = FALSE)
+points <- rgdal::readOGR(c_pointsPath, stringsAsFactors = FALSE)
 # head(points)
 # check the unique type available
 # unique(points$type)
