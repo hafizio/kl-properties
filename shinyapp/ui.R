@@ -33,6 +33,41 @@ navbarPage(
     )
   ), 
   tabPanel(
+    "User Guide",
+    class = "outer",
+    # TODO : fix the css, so that scrollable when displaying more rows.
+    tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
+    bootstrapPage(
+      titlePanel("Welcome to our app!"),
+      sidebarLayout(
+        sidebarPanel(
+          titlePanel("Who should use this app?"),
+          tags$ol(
+            tags$li("First time home buyers looking for potential property units"), 
+            tags$li("Property investors looking for area with high-yield returns"), 
+            tags$li("Property developers scouting for new strategic areas of development")
+          )
+        ),
+        mainPanel(
+          titlePanel("How to use this app?"),
+          tags$ol(
+            tags$li("Click the Interactive Map tab"), 
+            tags$li("Choose to view areas either by Property Price or Per Square Fee (psq)"),
+            tags$li("The map will show area heat map based on the selected option"),
+            tags$li("Hover your web cursor on the area of interest to see more details"),
+            tags$li("Hover your web cursor to the stacks icon on top right of the map to select any Point of Interests (POIs)"),
+            tags$li("Once the POIs legends are selected, it'll show additional markers on the map"),
+            tags$li("To further see the sentiment of a particular area, the user can click Forum Post Analysis tab"),
+            tags$li("In the Forum Post Analysis page, the user can key in the lowyat.net topic ID for analysis"),
+            tags$li("The lowyat.net topic ID represents a forum discussion specific for that a particular area e.g Sentul Village ID is 4001664"),
+            tags$li("The system would then crawl the forum site and gather the sentiments of the discussion and create a wordcloud to the user the see"),
+            tags$li("Based on all of these information, the user would be able to make a preliminary decision on which area is of interest to him/her"),
+          )
+        )
+      )
+    )
+  ), 
+  tabPanel(
     "Raw Data",
     class = "outer",
     # TODO : fix the css, so that scrollable when displaying more rows.
