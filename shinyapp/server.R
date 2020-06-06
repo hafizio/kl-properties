@@ -1,4 +1,5 @@
 source("readData.R")
+source("crawlUrl.R")
 
 function(input, output, session) {
     
@@ -37,6 +38,8 @@ function(input, output, session) {
             "RM"
         }
     })
+    
+    
     
     
     # create the legend bins
@@ -150,5 +153,24 @@ function(input, output, session) {
     displayTable$psf <- format(displayTable$psf,digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
     
     output$processedDataTable <- renderDataTable(displayTable)
+    
+    
+    #
+    # RENDERING WORDCLOUD2
+    #
+    processText <- function(topicUrl, lastPost) {
+      # compile the url of pages
+      topicUrl <- paste(topicUrl, "/+", sep="")
+      resultText <- lapply(paste0(rep(topicUrl), 
+                                  seq(0,lastPost,20)),
+                           f_readpage)
+      f_cleanText(resultText)
+    }
+    
+    output$topicTitle <- renderText(f_readTitle(input$topicUrl))
+    
+    output$wc2 <- wordcloud2::renderWordcloud2({
+      wordcloud2::wordcloud2(processText(input$topicUrl, input$lastPost), size=1.6, color='random-light', backgroundColor="black")
+    })
     
 }
