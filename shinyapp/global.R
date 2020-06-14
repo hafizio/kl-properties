@@ -65,6 +65,7 @@ propData <- g_oriPropData
   propData$LocationGroup[propData$LocationGroup == "Setapak, Kuala Lumpur"] <-"SETAPAK UTARA"
   propData$LocationGroup[propData$LocationGroup == "KL City, Kuala Lumpur"] <-"BUKIT NANAS"
   propData$LocationGroup[propData$LocationGroup == "KLCC, Kuala Lumpur"] <-"BUKIT NANAS"
+  propData$LocationGroup[propData$LocationGroup == "ADIVA Desa ParkCity, Kuala Lumpur"] <-"BANDAR MANJALARA"
   # TODO : more to map!!!
   
   # show the row without price
