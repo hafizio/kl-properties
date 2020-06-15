@@ -19,8 +19,10 @@ function(input, output, session) {
     
     updateLeaflet <- reactive({
         if (inputView() == "Psf") {
+          print("im here --> updateLeaflet | psf")
             resultInPsf <- format(areaPriceData[,4],digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
         } else {
+          print("im here --> updateLeaflet | price")
             resultInPrice <- format(areaPriceData[,2],digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
         }
     })
@@ -37,6 +39,11 @@ function(input, output, session) {
         } else {
             "RM"
         }
+    })
+    getSuffix <- reactive({
+      if (inputView() == "Psf") {
+        "psf"
+      }
     })
     
     
@@ -61,7 +68,7 @@ function(input, output, session) {
                         # display by the price first...
                         # TODO : then we move to display the psf
                         # TODO : maybe interactive recalculate by select option prop_price or psf
-                        label = paste(g_areaList, " : ", getPrefix() , updateLeaflet()),
+                        label = paste(g_areaList, " : ", getPrefix() , updateLeaflet(), getSuffix()),
                         color = qpal(rescale(
                                         x = updateLeafletScale(),
                                         to = c(0, g_max_price_range), 
@@ -121,7 +128,7 @@ function(input, output, session) {
                              radius = 5, 
                              stroke = FALSE, fillOpacity = .9) %>%
             # show control group
-            hideGroup(
+            leaflet::hideGroup(
                 c_controlGroup
             ) %>% 
             addLayersControl(
@@ -137,7 +144,7 @@ function(input, output, session) {
                 ),
                 values = updateLeafletScale(),
                 opacity = 0.7,
-                labFormat = labelFormat(suffix = "", prefix=getPrefix()),
+                labFormat = labelFormat(suffix = getSuffix(), prefix=getPrefix()),
             )
     })
     

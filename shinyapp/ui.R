@@ -22,14 +22,18 @@ navbarPage(
         width = "30%",
         height = "100%",
         
-        h2("Choose something:"),
-        selectInput("selected_view", "Select view", g_option_view)
+        h2("Choose view:"),
+        selectInput("selected_view", "Select view", g_option_view),
+        # add a submit button here,
+        # looks like the submit button in wordcloud tab disabled reactivity.
+        submitButton('Submit')
       ),
       
       # If not using custom CSS, set height of leafletOutput to a number instead of percent
-      leafletOutput("map", width = "70%", height = "100%")
-      
-  
+      div(
+        leafletOutput("map", width = "70%", height = "100%"),
+        style = "height: 95%; padding: 2em; overflow-y: auto;"
+      )
     )
   ), 
   tabPanel(
@@ -70,40 +74,52 @@ navbarPage(
   tabPanel(
     "Raw Data",
     class = "outer",
-    # TODO : fix the css, so that scrollable when displaying more rows.
-    tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
     bootstrapPage(
-      DT::dataTableOutput("rawDataTable")
+      div(
+        DT::dataTableOutput("rawDataTable"),
+        style = "height: 100%; padding: 15px; overflow-y: auto;"
+      )
     )
   ), 
   tabPanel(
     "Processed Data",
     class = "outer",
-    # TODO : fix the css, so that scrollable when displaying more rows.
-    tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
     bootstrapPage(
-      DT::dataTableOutput("processedDataTable")
+      div(
+        DT::dataTableOutput("processedDataTable"),
+        style = "height: 100%; padding: 15px; overflow-y: auto;"
+      )
     )
   ),
   tabPanel(
     "Forum Post Analysis",
     class = "outer",
-    # TODO : fix the css, so that scrollable when displaying more rows.
-    tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
     bootstrapPage(
-      textInput("topicUrl", 'Topic URL (lowyat.net) only : ', value = 'https://forum.lowyat.net/topic/4001664', width = NULL,
+      div(
+        style = "height: 100%; padding: 15px; overflow-y: auto",
+        
+        # Input wrapper
+        div(
+          textInput("topicUrl", 'Topic URL (lowyat.net) only : ', value = 'https://forum.lowyat.net/topic/4001664', width = NULL,
                 placeholder = NULL),
       
-      numericInput("lastPost", 'Last Post # : ', 100, min = 10, max = 1000, step = 20,
+          numericInput("lastPost", 'Last Post # : ', 100, min = 10, max = 1000, step = 20,
                    width = NULL),
-      submitButton('Submit'),
+          submitButton('Submit')
+        ),
       
-      # display the Topic Title here.
-      # TODO : proper alignment so that look nicer
-      textOutput("topicTitle"),
+        # Output wrapper
+        div(
+          style = "margin-top: 30px;",
+          
+        
+          # display the Topic Title here.
+          h2(textOutput("topicTitle"), style = "text-align: center; margin-bottom: 15px;"),
       
-      # render the wordcloud2 here.
-      wordcloud2::wordcloud2Output('wc2')
+          # render the wordcloud2 here.
+          wordcloud2::wordcloud2Output('wc2')
+        )
+      )
     )
   )
   
