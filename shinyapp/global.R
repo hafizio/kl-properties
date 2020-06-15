@@ -10,6 +10,9 @@ library(DT) # to display table
 c_geojsonPath <- "data/09-WPKL-New-DM-4326.geojson"
 c_propDataPath <- "data/properties.csv"
 
+# for the ui link
+proptalkURL <- a("Find Topic Here!!", href="https://forum.lowyat.net/PropertyTalk")
+
 # define the constant here
 g_option_view <- c("Property price"="Price", "Per square feet"="Psf")
 

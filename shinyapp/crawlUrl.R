@@ -34,10 +34,15 @@ f_readpage <- memoise(function(in_url) {
 
 
 f_readTitle <- memoise(function(in_url) {
-  Sys.sleep(1)
-  httr::GET(in_url, httr::timeout(1))
-  page <- xml2::read_html(in_url)
-  rvest::html_text(rvest::html_node(page, "title"))
+  
+  if (in_url == '') {
+    "Empty URL"
+  } else {
+    Sys.sleep(1)
+    httr::GET(in_url, httr::timeout(1))
+    page <- xml2::read_html(in_url)
+    rvest::html_text(rvest::html_node(page, "title"))
+  }
 })
 
 # clean text function

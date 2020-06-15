@@ -100,7 +100,8 @@ navbarPage(
         
         # Input wrapper
         div(
-          textInput("topicUrl", 'Topic URL (lowyat.net) only : ', value = 'https://forum.lowyat.net/topic/4001664', width = NULL,
+          proptalkURL,
+          textInput("topicUrl", 'Choose a Topic URL : ', value = '', width = NULL,
                 placeholder = NULL),
       
           numericInput("lastPost", 'Last Post # : ', 100, min = 10, max = 1000, step = 20,

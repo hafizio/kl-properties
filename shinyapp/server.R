@@ -166,13 +166,18 @@ function(input, output, session) {
     # RENDERING WORDCLOUD2
     #
     processText <- function(topicUrl, lastPost) {
-      # compile the url of pages
-      topicUrl <- paste(topicUrl, "/+", sep="")
-      resultText <- lapply(paste0(rep(topicUrl), 
-                                  seq(0,lastPost,20)),
-                           f_readpage)
-      f_cleanText(resultText)
+      if (topicUrl == '') {
+        data.frame(term = c("EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY"), count = c(10, 15, 3, 5, 7))
+      } else {
+        # compile the url of pages
+        topicUrl <- paste(topicUrl, "/+", sep="")
+        resultText <- lapply(paste0(rep(topicUrl), 
+                                    seq(0,lastPost,20)),
+                             f_readpage)
+        f_cleanText(resultText)
+      }
     }
+    
     
     output$topicTitle <- renderText(f_readTitle(input$topicUrl))
     
