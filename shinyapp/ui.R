@@ -85,11 +85,8 @@ navbarPage(
   ), 
   tabPanel(
     "User Guide",
-    class = "outer",
-    # TODO : fix the css, so that scrollable when displaying more rows.
-    tags$head(tags$style( type = 'text/css',  'table { overflow-y: scroll; height: 500px; }')),
+    class = "container",
     bootstrapPage(
-      titlePanel("Welcome to our app!"),
       sidebarLayout(
         sidebarPanel(
           titlePanel("Who should use this app?"),
@@ -97,10 +94,11 @@ navbarPage(
             tags$li("First time home buyers looking for potential property units"), 
             tags$li("Property investors looking for area with high-yield returns"), 
             tags$li("Property developers scouting for new strategic areas of development")
-          )
+          ),
+          class = "bg-success"
         ),
         mainPanel(
-          titlePanel("How to use this app?"),
+          tags$h2("How to use this app?"),
           tags$ol(
             tags$li("Click the Interactive Map tab"), 
             tags$li("Choose to view areas either by Property Price or Per Square Fee (psq)"),
@@ -169,6 +167,58 @@ navbarPage(
         )
       )
     )
-  )
-  
+  ),
+  tabPanel(
+    "About Project",
+    class = "container",
+    bootstrapPage(
+      tags$div(
+        tags$div(
+          tags$div(
+            tags$h2("Data Science Workflows", class = 'text-primary'),
+            tags$ol(
+              tags$li("Data Sourcing"), 
+              tags$ol(
+                tags$li("Property Listings in Kuala Lumpur from https://www.kaggle.com/dragonduck/property-listings-in-kuala-lumpur"), 
+                tags$li("Kuala Lumpur GeoJSON from https://github.com/TindakMalaysia/Federal-Territories-Maps/blob/master/KL/2016/MAP/MIGRATED/result/09-WPKL-New-DM-4326.geojson"), 
+                tags$li("Kuala Lumpur OGR Shapefile from https://extract.bbbike.org"), 
+              ),
+              tags$li("Data Processing"),
+              tags$ol(
+                tags$li("Property Listings data is combined with the GeoJSON data to form the geo-boundaries around the property area"), 
+                tags$li("Once the geo-boundaries are displayed in the Shiny app, we overlay the OGR data (Point of Interests) on top of the map"), 
+              ),
+              tags$li("Deployment of Shiny application to shinyapps.io"),
+            )
+          ),
+          tags$div(
+            tags$h2("Dataset Description", class = 'text-success'),
+            tags$ol(
+              tags$li("Property Listing in Kuala Lumpur"),
+              tags$ul(
+                tags$li("Location, Price, Room, Bathrooms, Car Parks, Property Type, Size, Furnishing"),
+                tags$li("53,883 entries"),
+              ),
+              tags$li("Kuala Lumpur GeoJSON"),
+              tags$ul(
+                tags$li("Location, DUN"),
+              ),
+              tags$li("Kuala Lumpur OGR Shapefile"),
+              tags$ul(
+                tags$li("Points"),
+                tags$li("Railways"),
+              ),
+            ),
+          ),
+          tags$div(
+            tags$h2("Team Experience", class = 'text-secondary'),
+            tags$ol(
+              tags$li("We are able to work collaboratively using Github, Google Drive, Microsoft team, and Whatsapp"), 
+              tags$li("Teamwork is key so we discuss frequently to push progress"), 
+            )
+          )
+        )
+      )
+    )
+  ) 
 )
