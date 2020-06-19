@@ -1,7 +1,54 @@
 navbarPage(
-  
   # Application title
-  "Kuala Lumpur Properties Price",
+  img(src="logo4.png", alt="PropSight", height=20),
+  
+  # Landing Page
+  tabPanel(
+    "Home",
+    
+    # Jumbotron
+    tags$div(
+      class="jumbotron",
+      style="background-color: transparent;",
+      
+      fixedRow(
+        # Left column
+        column(7,
+          style="padding: 50px;",
+          
+          tags$h1(
+           class="display-1",
+           style="color: #385A64;",
+           "PropSight"
+          ),
+          tags$p(
+            style="font-size: 18px;",
+           "— Property at a glance"
+          ),
+          tags$p(
+            "PropSight is your virtual property surveyor that helps you to ",
+            "find the property of your dreams ",
+            icon("heart", class="text-danger", lib = "font-awesome")
+          ),
+          actionButton(
+            "get_started",
+            "Get Started",
+            class="btn btn-primary btn-lg",
+          )
+        ),
+        
+        # Right column
+        column(5,
+          tags$img(
+           src="house-search.jpg",
+           width="100%",
+           style="margin-right: 50px;"
+          )
+        )
+        
+      ) 
+    )
+  ),
   
   tabPanel(
     "Interactive Map",

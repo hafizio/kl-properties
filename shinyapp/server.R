@@ -2,7 +2,6 @@ source("readData.R")
 source("crawlUrl.R")
 
 function(input, output, session) {
-    
     #
     # LOCAL CONSTANT
     #
@@ -45,9 +44,6 @@ function(input, output, session) {
         "psf"
       }
     })
-    
-    
-    
     
     # create the legend bins
     qpal <- colorNumeric(
