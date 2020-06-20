@@ -1,6 +1,7 @@
 navbarPage(
   # Application title
-  img(src="logo4.png", alt="PropSight", height=20),
+  title=div(img(src="logo4.png", alt="PropSight", height=20)),
+  windowTitle="PropSight - Property at a glance",
   
   # Landing Page
   tabPanel(
