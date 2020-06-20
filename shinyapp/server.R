@@ -22,7 +22,7 @@ function(input, output, session) {
             resultInPsf <- format(areaPriceData[,4],digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
         } else {
           print("im here --> updateLeaflet | price")
-            resultInPrice <- format(areaPriceData[,2],digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
+            resultInPrice <- format(areaPriceData[,2],digits=8, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
         }
     })
     updateLeafletScale <- reactive({
