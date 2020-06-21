@@ -155,7 +155,8 @@ function(input, output, session) {
     displayTable$MeanSize <- format(displayTable$MeanSize,digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
     displayTable$psf <- format(displayTable$psf,digits=2, nsmall=0, big.mark=",",small.mark=".", small.interval=3 )
     
-    output$processedDataTable <- renderDataTable(displayTable)
+    # change displayTable to propData
+    output$processedDataTable <- renderDataTable(propData)
     
     
     #
