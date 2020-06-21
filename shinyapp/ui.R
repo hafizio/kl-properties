@@ -193,7 +193,7 @@ navbarPage(
             )
           ),
           tags$div(
-            tags$h2("Dataset Description", class = 'text-success'),
+            tags$h2("Dataset Description", class = 'text-primary'),
             tags$ol(
               tags$li("Property Listing in Kuala Lumpur"),
               tags$ul(
@@ -206,16 +206,46 @@ navbarPage(
               ),
               tags$li("Kuala Lumpur OGR Shapefile"),
               tags$ul(
-                tags$li("Points"),
+                tags$li("Point - Hospitals, Schools, Police Stations, Parks"),
                 tags$li("Railways"),
               ),
             ),
           ),
           tags$div(
-            tags$h2("Team Experience", class = 'text-secondary'),
+            tags$h2("Team Experience", class = 'text-primary'),
             tags$ol(
               tags$li("We are able to work collaboratively using Github, Google Drive, Microsoft team, and Whatsapp"), 
-              tags$li("Teamwork is key so we discuss frequently to push progress"), 
+              tags$li("Teamwork is key so we have discussions frequently to push progress forward"), 
+              tags$li("One of the main challenge for us was to come up with creative ways to present our ideas in the app"), 
+            )
+          ),
+          tags$div(
+            tags$h2("References", class = 'text-primary'),
+            tags$ol(
+              tags$li("https://www.nst.com.my/property/2019/12/551920/buying-guide-first-time-home-buyers"),
+              tags$li("https://www.collinshomeloans.com.au/blog/choose-your-next-property-purchase-like-an-expert-0"),
+              tags$li("https://www.investopedia.com/updates/first-time-home-buyer/"),
+              tags$li("https://www.investopedia.com/articles/mortgage-real-estate/09/buy-house-emotion-free.asp"),
+              tags$li("https://www.redfin.com/guides/property-survey"),
+              tags$li("https://www.propertyguru.com.my/property-guides/how-to-buy-new-house-malaysia-16637"),
+              tags$li("https://www.edgeprop.my/content/1459177/best-time-buy-your-first-home")
+            )
+          ),
+          tags$div(
+            tags$h2("Examples", class = 'text-primary'),
+            tags$ol(
+              tags$li("https://dribbble.com/shots/11062236-Relevant-Home-Page"),
+              tags$li("https://dribbble.com/shots/10000204-Urban-Jungle-Landing-Page"),
+              tags$li("https://dribbble.com/shots/10154541-Nutracheck-Website-Redesign"),
+              tags$li("https://dribbble.com/shots/11416640-Paypal-Landing-Page-Concept"),
+              tags$li("https://www.freepik.com/free-vector/house-rent-isometric-landing-page-mobile-app_7588698.htm#page=1&query=property&position=44"),
+              tags$li("https://www.freepik.com/free-vector/happy-family-standing-together-front-house_8271076.htm#page=1&query=property&position=28"),
+              tags$li("https://www.freepik.com/free-vector/house-searching-concept-illustration_5421756.htm#page=1&query=property%20illustration&position=20"),
+              tags$li("https://www.freepik.com/search?dates=any&format=search&page=1&query=property%20illustration&sort=popular"),
+              tags$li("https://rpubs.com/jycheah/FiNap"),
+              tags$li("https://rpubs.com/humairasulaiman/klpropertyexplorer"),
+              tags$li("https://rpubs.com/EnJunz/499031"),
+              tags$li("https://padlet.com/salimah/shinyprojects")
             )
           )
         )
