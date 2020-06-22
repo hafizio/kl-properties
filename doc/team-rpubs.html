@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>KL Properties</title>
+  <title></title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -524,7 +524,58 @@ body {
   font-family: "News Cycle", Impact, sans-serif;
 }
 
+body {
+  background-image: url('https://images.unsplash.com/photo-1592322481650-2f602e3493a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3224&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.slideContent.noTitle {
+  background-image: url('https://svgur.com/i/MET.svg');
+  height: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section .reveal .state-background {
+  background-color: #00fdc8ff;
+}
+
+.slideContent {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px !important;
+  opacity: 0.9;
+}
+
+p, strong, li {
+  font-size: 30px !important;
+}
+
+h3 {
+  background-color: white;
+  padding: 20px !important;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+span {
+  color: green;
+}
+
+.screenshot {
+  display: flex;
+  justify-content: space-around;
+}
+
+.screenshot > img {
+  width: 350px;
+  height: 180px;
+}
+  
 
   </style>
   
@@ -748,54 +799,75 @@ hljs.initHighlightingOnLoad();
   <div class="reveal">
   <div class="slides">
 
-<section data-state="section" data-transition="default" data-transition-speed="default">
-<h1>KL Properties</h1><p>Chen Zuo Jie, Loo Jia Hao, Ng See Kiat, Muhammad Hafiz bin Khairudin<br/>June 06 2020</p>
+<section data-state="section" data-transition="linear" data-transition-speed="default">
+<h1></h1><p></p>
 
-<div class="slideContent" >
-<p><small> 
-WQD7001
-Principle of Data Science
-</small></p>
+<div class="slideContent noTitle" >
 
 </div>
 
 </section>
-<section data-transition="default" data-transition-speed="default">
-<h3>Problem Statement</h3>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Buying New Property = Nightmare</h3>
 <div class="slideContent" >
-<ul>
-<li>??</li>
-</ul>
+<p>Are you a millennial looking for your first home ownership? Is it for your own stay or the long term investment? Don&#39;t know where to start? Buying a new property that fits your requirements and meeting your expectations could be a hassle.</p>
+
+<p>There are few target audience that could be having such challenges</p>
+
+<p><strong>First Time Home Buyer:</strong> Which will be the ideal property that I could afford with all the features/amenities I desire?</p>
+
+<p><strong>Newlyweds or Family with Children:</strong> Does it have sufficient bedrooms for the entire family members or will it be easier commuting to work?</p>
+
+<p><strong>Property Investor:</strong> Which is the potential location or property that could ensure me a high return on investment?</p>
 
 </div>
 
 </section>
-<section data-transition="default" data-transition-speed="default">
-<h3>Data</h3>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Existing Solutions?</h3>
 <div class="slideContent" >
-<ul>
-<li>??</li>
-</ul>
+<p>Buying a home can be challenging as there are so many steps, tasks, and requirements, and you may be anxious about making an expensive mistake.</p>
+
+<p>There are several existing solutions that might help you, but..</p>
+
+<p><strong>Ask Around</strong> - the information gathered could be <span>inaccurate</span> or not updated</p>
+
+<p><strong>Google Search</strong> - spend you a lot of <span>precious time</span> searching and looking for relevant articles and opinions to find your ideal property</p>
+
+<p><strong>Hire a Property Surveyor</strong> - need time to search for an experienced property surveyor and <span>extra money</span> needed to pay for the hiring</p>
 
 </div>
 
 </section>
-<section data-transition="default" data-transition-speed="default">
-<h3>Insights</h3>
+<section data-transition="linear" data-transition-speed="default">
+<h3>PropSight - Your Virtual Property Surveyor</h3>
 <div class="slideContent" >
-<ul>
-<li>??</li>
-</ul>
+<p>PropSight serves as a property research tool that assist you to choose your next property purchase like an expert..</p>
+
+<p><strong>Map Screening</strong> - <span>Fast screening</span> for your ideal property within selected price range and <span>neighbourhood</span></p>
+
+<p><strong>Property Insight</strong> - Get <span>further insights</span> on the property you chosen from the discussion of <span>local community</span></p>
+
+<div class="screenshot">
+  <img src="https://i.ibb.co/BrhcBCK/map.jpg">
+  <img src="https://i.ibb.co/Ldrqc9K/worcloud.jpg">
+</div>
 
 </div>
 
 </section>
-<section data-transition="default" data-transition-speed="default">
-<h3>Conclusion</h3>
+<section data-transition="linear" data-transition-speed="default">
+<h3>How do we build PropSight?</h3>
 <div class="slideContent" >
-<ul>
-<li>??</li>
-</ul>
+<p>PropSight is built using R Shiny with Leaflet and GeoJSON. Throughout the whole development process, we are able to go through the data science workflow to collect and process our data, generate insights, build and deploy the app to cloud server. We work collaboratively using Github, Google Drive, Microsoft team, and Whatsapp. </p>
+
+<p>Further information on the development process could be found on the links below:</p>
+
+<p>Shiny App: <a href="https://toitoi.shinyapps.io/klprop/">https://toitoi.shinyapps.io/klprop/</a></p>
+
+<p>Github Repository: <a href="https://github.com/toitoi/kl-properties">https://github.com/toitoi/kl-properties</a></p>
+
+<p>Pitch Presentation Video:</p>
 
 </div>
 
@@ -851,7 +923,7 @@ function commandsForSlide(indexh) {
       rollingLinks: false,
       
       theme: 'simple', 
-      transition: 'default',
+      transition: 'linear',
       transitionSpeed: 'default',
       rtl: false,
       width: 960,

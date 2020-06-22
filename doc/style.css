@@ -1,0 +1,52 @@
+body {
+  background-image: url('https://images.unsplash.com/photo-1592322481650-2f602e3493a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3224&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slideContent.noTitle {
+  background-image: url('https://svgur.com/i/MET.svg');
+  height: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section .reveal .state-background {
+  background-color: #00fdc8ff;
+}
+
+.slideContent {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px !important;
+  opacity: 0.9;
+}
+
+p, strong, li {
+  font-size: 30px !important;
+}
+
+h3 {
+  background-color: white;
+  padding: 20px !important;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+span {
+  color: green;
+}
+
+.screenshot {
+  display: flex;
+  justify-content: space-around;
+}
+
+.screenshot > img {
+  width: 350px;
+  height: 180px;
+}
+  
